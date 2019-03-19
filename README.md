@@ -1,7 +1,5 @@
 # Nom des étudiants de ce binôme 
-(les DEUX noms) : XXXXX et XXXXXX
-
-Commentaires éventuels des étudiants : XXXXXX
+(les DEUX noms) : Martin LE BAUT et Yoann DA SILVA GRACA
 
 # Pré-requis 
 * Disposer d'au moins un compte github par binome
