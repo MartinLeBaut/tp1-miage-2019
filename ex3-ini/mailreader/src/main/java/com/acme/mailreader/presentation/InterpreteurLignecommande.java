@@ -5,15 +5,16 @@ import java.util.logging.Logger;
 
 import com.acme.mailreader.domain.Mail;
 import com.acme.mailreader.service.MailService;
+import com.google.inject.Inject;
 
 public class InterpreteurLignecommande {
 	
-	//TODO : injecter un serviceMail par constructeur
-	private MailService serviceMail;
+	private MailService mService;
 	
-	
-	public InterpreteurLignecommande() {
+	@Inject
+	public InterpreteurLignecommande(MailService mService) {
 		super();
+		this.mService = mService;
 	}
 	
 	/**
@@ -24,7 +25,7 @@ public class InterpreteurLignecommande {
 		String sujet = args[1];
 		Mail mail = new Mail.Builder(sujet).build();
 		try {
-			serviceMail.envoyerMail(mail);
+			mService.envoyerMail(mail);
 		} catch (MailInvalideException e) {
 			Logger.getGlobal().log(Level.SEVERE,e.getMessage(), e);
 		}

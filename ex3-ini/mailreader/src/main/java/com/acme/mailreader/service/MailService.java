@@ -3,6 +3,9 @@ package com.acme.mailreader.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import com.acme.mailreader.domain.Mail;
 import com.acme.mailreader.presentation.MailInvalideException;
 import com.acme.mailreader.presentation.MailInvalideException.ErreurMail;
@@ -11,12 +14,12 @@ public class MailService {
 	
 	private static final int TAILLE_MAX_SUJET = 20;
 	
-	//TODO : injecter par constructeur un sender
-	private MailSender sender;
+	private MailSender mSender;
 	
-	
-	public MailService(MailSender sender) {
+	@Inject
+	public MailService(MailSender mSender) {
 		super();
+		this.mSender = mSender;
 	}
 
 	/**
@@ -31,7 +34,7 @@ public class MailService {
 			throw new MailInvalideException(ErreurMail.SUJET_TROP_LONG);
 		}
 		//...
-		sender.envoyerMail(mail);
+		mSender.envoyerMail(mail);
 
 	}
 
@@ -41,7 +44,6 @@ public class MailService {
 	 * @return l'ensemble des mails de la boite ou une liste vide si aucun
 	 */
 	public List<Mail> getTousLesMails() {
-		//TODO
 		return new ArrayList<Mail>();
 	}
 
