@@ -46,7 +46,6 @@ public class MailService {
 	 * @return l'ensemble des mails de la boite ou une liste vide si aucun
 	 */
 	public List<Mail> getTousLesMails() {
-		//TODO
 		return new ArrayList<Mail>();
 	}
 
